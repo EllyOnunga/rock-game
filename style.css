@@ -4,17 +4,27 @@ body {
     text-align: center;
     margin: 0;
     padding: 40px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
 }
 
 h1 {
-    color: #333;
+    margin-bottom: 20px;
     font-size: 2.5rem;
 }
 
 .scoreboard {
     font-size: 1.25rem;
     margin-bottom: 20px;
-    color: #444;
 }
 
 .choices button {
@@ -35,9 +45,8 @@ h1 {
 }
 
 .result {
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     margin-top: 30px;
-    color: #333;
 }
 
 .reset-btn {
@@ -53,4 +62,31 @@ h1 {
 
 .reset-btn:hover {
     background-color: #1e88e5;
+}
+
+.countdown {
+    font-size: 1.5rem;
+    color: #f44336;
+    margin: 15px 0;
+}
+
+.theme-toggle {
+    margin-bottom: 20px;
+}
+
+body.dark.choices button {
+    background-color: #333;
+    color: white;
+}
+
+body.dark.choices button:hover {
+    background-color: #444;
+}
+
+body.dark.reset-btn {
+    background-color: #555;
+}
+
+body.dark.reset-btn:hover {
+    background-color: #666;
 }

@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
     <h1>Rock Paper Scissors</h1>
+
+    <div class="theme-toggle">
+        <label>
+            <input type="checkbox" id="darkModeToggle"/>
+            🌙 Dark Mode
+        </label>
+    </div>
 
     <div class="scoreboard">
         <p id="score">Player: 0 | Computer: 0</p>
@@ -18,6 +26,9 @@
         <button onclick="play('paper')">📄Paper</button>
         <button onclick="play('scissors')">✂Scissors</button>
     </div>
+
+    <div class="countdown" id="countdown"></div>
+    
     <div class="result">
         <p id="player-choice">You chose: -</p>
         <p id="computer-choice">Computer chose: -</p>
