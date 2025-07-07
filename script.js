@@ -1,3 +1,5 @@
+
+window.onload = function () {
 let playerScore = Number(localStorage.getItem('playerScore'));
 let computerScore = Number(localStorage.getItem('computerScore'));
 
@@ -6,8 +8,9 @@ if (isNaN(computerScore)) computerScore = 0;
 
 updateScore();
 
-function play(playerChoice) {
-    document.getElementById('click-sound').play();
+window.play = function (playerChoice) {
+    const sound = document.getElementById('click-sound');
+    if (sound) sound.play();
 
     const choices = ['rock', 'paper', 'scissors'];
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -44,6 +47,20 @@ function play(playerChoice) {
     updateScore();
 }
 
+window.resetGame = function () {
+    playerScore = 0;
+    computerScore = 0;
+    localStorage.removeItem('playerScore');
+    localStorage.removeItem('computerScore');
+
+    document.getElementById('score').textContent = 'Player: 0 | Computer: 0';
+    document.getElementById('player-choice').textContent = 'You chose: -';
+    document.getElementById('computer-choice').textContent = 'Computer chose: -';
+    document.getElementById('result').textContent = 'Result: -';
+    document.getElementById('comment').textContent = '';
+
+}
+
 function updateScore() {
     localStorage.setItem('playerScore', playerScore.toString());
     localStorage.setItem('computerScore', computerScore.toString());
@@ -51,18 +68,4 @@ function updateScore() {
     document.getElementById('score').textContent = 
     `Player: ${playerScore} | Computer: ${computerScore}`;
 }
-
-function resetGame() {
-    playerScore = 0;
-    computerScore = 0;
-
-    localStorage.removeItem('playerScore');
-    localStorage.removeItem('computerScore');
-
-    document.getElementById('score').textContent = 'Player: 0 | Computer: 0';
-    document.getElementById('player-choice').textContent = 'You chose: -';
-    document.getElementById('computer-choice').textContent = 'Computer chose: -';
-
-    document.getElementById('result').textContent = 'Result: -';
-    document.getElementById('comment').textContent = '';
-}
+};
