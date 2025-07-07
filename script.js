@@ -1,5 +1,8 @@
-let playerScore = parseInt(localStorage.getItem('playerScore')) || 0;
-let computerScore = parseInt(localStorage.getItem('computerScore')) || 0;
+let playerScore = Number(localStorage.getItem('playerScore'));
+let computerScore = Number(localStorage.getItem('computerScore'));
+
+if (isNaN(playerScore)) playerScore = 0;
+if (isNaN(computerScore)) computerScore = 0;
 
 updateScore();
 
@@ -42,10 +45,11 @@ function play(playerChoice) {
 }
 
 function updateScore() {
-    document.getElementById('score').textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
+    localStorage.setItem('playerScore', playerScore.toString());
+    localStorage.setItem('computerScore', computerScore.toString());
 
-    localStorage.setItem('playerScore', playerScore);
-    localStorage.setItem('computerScore', computerScore);
+    document.getElementById('score').textContent = 
+    `Player: ${playerScore} | Computer: ${computerScore}`;
 }
 
 function resetGame() {
