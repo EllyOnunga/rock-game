@@ -8,16 +8,27 @@
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
+
+    <div class="scoreboard">
+        <p id="player-score">Player Score: 0 | Computer Score: 0</p>
+    </div>
+
     <div class="choices">
-        <button onclick="play('rock')">Rock</button>
-        <button onclick="play('paper')">Paper</button>
-        <button onclick="play('scissors')">Scissors</button>
+        <button onclick="play('rock')">🥌Rock</button>
+        <button onclick="play('paper')">📄Paper</button>
+        <button onclick="play('scissors')">✂️Scissors</button>
     </div>
     <div class="result">
         <p id="player-choice">You chose: -</p>
         <p id="computer-choice">Computer chose: -</p>
         <p id="result">Result: -</p>
+        <p id="comment"></p>
     </div>
+
+    <button class="reset-btn" onclick="resetGame()">🔄 Play Again</button>
+
+    <audio id="click-sound" 
+    src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
 
     <script src="script.js"></script>
 </body>
